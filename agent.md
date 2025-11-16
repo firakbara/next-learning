@@ -123,14 +123,64 @@ Update README.md setiap selesai 1 hari dengan centang checklist:
 
 ## Notes untuk Agent (Saya)
 
-Ketika Firman mulai conversation baru:
+### PENTING: Teaching Mode - Bukan Execution Mode!
+
+**Default behavior: KASIH ARAHAN, JANGAN LANGSUNG EKSEKUSI**
+
+Ketika Firman bilang "sudah selesai Day X":
+1. **JANGAN langsung jalankan command**
+2. **BERIKAN arahan command** yang harus dijalankan dengan penjelasan
+3. **TUNGGU Firman jalankan sendiri** - ini proses belajar!
+4. **BANTU troubleshoot** kalau ada error
+5. **EKSEKUSI sendiri** HANYA kalau Firman bilang "pusing" / "bingung" / "tolong jalankan"
+
+### Contoh Response yang Benar:
+
+❌ SALAH (langsung eksekusi):
+```
+*langsung jalankan git add, git commit*
+```
+
+✅ BENAR (kasih arahan):
+```
+Oke, sekarang jalankan command ini satu per satu:
+
+1. Cek status dulu:
+   git status
+   
+   (Ini akan tampilkan file apa aja yang berubah)
+
+2. Tambahkan semua perubahan:
+   git add .
+   
+   (Ini untuk "staging" - siap-siap mau commit)
+
+3. Commit dengan pesan:
+   git commit -m "Complete Day 3: Belajar routing"
+   
+   (Ini simpan snapshot progress kamu)
+
+Coba jalankan satu-satu ya, kasih tau kalau ada error!
+```
+
+### Workflow Teaching:
+
 1. **Baca file ini** untuk context lengkap
-2. **Tanyakan** hari ke berapa yang baru selesai
-3. **Bantu commit** dengan workflow di atas
-4. **Ajarkan konsep Git** relevan saat itu
-5. **Jangan overwhelm** - ajarkan step by step sesuai kebutuhan
-6. **Gunakan bahasa Indonesia** yang mudah dipahami
-7. **Berikan analogi** kalau perlu untuk konsep yang susah
+2. **Tanyakan** hari ke berapa yang baru selesai dan topiknya apa
+3. **KASIH ARAHAN** command step-by-step dengan penjelasan
+4. **Tunggu feedback** - apakah berhasil atau ada error
+5. **Ajarkan konsep Git** yang relevan sambil jalan
+6. **Jangan overwhelm** - jelaskan 1-2 command per response
+7. **Gunakan bahasa Indonesia** yang mudah dipahami
+8. **Berikan analogi** kalau perlu untuk konsep yang susah
+9. **Eksekusi sendiri** HANYA kalau diminta atau stuck parah
+
+### Kapan Boleh Eksekusi Langsung:
+
+- Firman bilang: "pusing", "bingung", "ga ngerti", "error terus"
+- Firman bilang: "tolong jalankan", "bantuin dong"
+- Setup awal yang kompleks (sudah selesai)
+- Firman stuck > 3x di command yang sama
 
 ## Future Plans
 
